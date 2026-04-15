@@ -1,0 +1,555 @@
+/* =========================================================
+   Finlete — Bootstrap 5 rebuild
+   Custom styles layered on top of Bootstrap defaults.
+   Brand palette sampled from the legacy Next.js site:
+     #32cd32 (primary / accent green)
+     #37ba39 (hover / darker green)
+     #45cd47 (subtle accent)
+     #0a0a0a (near-black surfaces)
+   ========================================================= */
+
+:root {
+  --finlete-green: #32cd32;
+  --finlete-green-dark: #37ba39;
+  --finlete-green-soft: rgba(69, 205, 71, 0.18);
+  --finlete-ink: #0a0a0a;
+  --finlete-ink-2: #111827;
+  --finlete-muted: #6b7280;
+
+  /* Override Bootstrap theme primitives via CSS variables (no Sass needed). */
+  --bs-primary: var(--finlete-green);
+  --bs-primary-rgb: 50, 205, 50;
+  --bs-link-color: var(--finlete-green-dark);
+  --bs-link-hover-color: var(--finlete-ink);
+  --bs-body-font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Headings use Archivo — the closest Google font match to Archivo SemiExpanded,
+   which was the legacy title face. */
+h1, h2, h3, h4, h5, h6,
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+  font-family: "Archivo", "Inter", system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+body {
+  color: #1a1a1a;
+  background: #fff;
+}
+
+/* Brand accent helpers */
+.text-brand { color: var(--finlete-green) !important; }
+.bg-brand { background-color: var(--finlete-green) !important; }
+.bg-ink { background-color: var(--finlete-ink) !important; color: #fff; }
+
+/* Buttons — recolor primary to brand green */
+.btn-primary {
+  --bs-btn-bg: var(--finlete-green);
+  --bs-btn-border-color: var(--finlete-green);
+  --bs-btn-hover-bg: var(--finlete-green-dark);
+  --bs-btn-hover-border-color: var(--finlete-green-dark);
+  --bs-btn-active-bg: var(--finlete-green-dark);
+  --bs-btn-active-border-color: var(--finlete-green-dark);
+  --bs-btn-color: #fff;
+  --bs-btn-hover-color: #fff;
+  font-weight: 600;
+}
+
+.btn-outline-light {
+  font-weight: 600;
+}
+
+.btn-lg {
+  padding: 0.85rem 1.6rem;
+}
+
+/* Navbar — dark surface on home, translucent-over-hero handled per-page */
+.navbar-finlete {
+  background: var(--finlete-ink);
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+.navbar-finlete .navbar-brand img {
+  height: 28px;
+  width: auto;
+}
+
+.navbar-finlete .nav-link {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+.navbar-finlete .nav-link:hover,
+.navbar-finlete .nav-link.active {
+  color: var(--finlete-green);
+}
+
+/* Hero */
+.hero {
+  background: radial-gradient(ellipse at top right, #1a1a1a 0%, #000 60%);
+  color: #fff;
+  padding: 6rem 0 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+}
+
+.hero .lead {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.15rem;
+  max-width: 36rem;
+}
+
+.hero .hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--finlete-green-soft);
+  color: var(--finlete-green);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(69, 205, 71, 0.35);
+}
+
+/* Metrics strip */
+.metric-card {
+  border: 0;
+  background: #fafafa;
+  border-radius: 14px;
+  padding: 1.75rem 1.5rem;
+}
+
+.metric-card .metric-value {
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  color: var(--finlete-ink);
+  line-height: 1;
+}
+
+.metric-card .metric-label {
+  color: var(--finlete-muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.5rem;
+}
+
+/* Section rhythm */
+.section {
+  padding: 5rem 0;
+}
+
+.section-muted {
+  background: #f6f7f8;
+}
+
+.section-dark {
+  background: var(--finlete-ink);
+  color: #fff;
+}
+
+.section-dark h2,
+.section-dark h3 {
+  color: #fff;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--finlete-green);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  margin-bottom: 0.75rem;
+}
+
+.section-lead {
+  color: var(--finlete-muted);
+  max-width: 44rem;
+  margin: 0 auto 2.5rem;
+}
+
+/* Step cards (How it works) */
+.step-card {
+  border: 1px solid #eceef1;
+  border-radius: 16px;
+  padding: 2rem 1.75rem;
+  height: 100%;
+  background: #fff;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+}
+
+.step-card .step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--finlete-green-soft);
+  color: var(--finlete-green-dark);
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+}
+
+/* Audience / perk cards */
+.feature-card {
+  background: #fff;
+  border: 1px solid #eceef1;
+  border-radius: 16px;
+  padding: 1.75rem;
+  height: 100%;
+}
+
+.feature-card .bi {
+  font-size: 2rem;
+  color: var(--finlete-green);
+  margin-bottom: 0.75rem;
+}
+
+/* Athlete cards */
+.athlete-card {
+  border: 1px solid #eceef1;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.athlete-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+}
+
+.athlete-card .athlete-media {
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1f2937 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.athlete-card .athlete-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.athlete-card .status-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--finlete-green);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+}
+
+.athlete-card .status-badge.funded {
+  background: #6b7280;
+}
+
+.athlete-card .athlete-body {
+  padding: 1.25rem 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.athlete-card .athlete-name {
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin: 0 0 0.15rem;
+  color: var(--finlete-ink);
+}
+
+.athlete-card .athlete-team {
+  color: var(--finlete-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* Testimonials */
+.testimonial-card {
+  background: #fff;
+  border: 1px solid #eceef1;
+  border-radius: 16px;
+  padding: 1.75rem;
+  height: 100%;
+}
+
+.testimonial-card .quote {
+  font-size: 1rem;
+  color: #1a1a1a;
+  margin-bottom: 1.25rem;
+  line-height: 1.55;
+}
+
+.testimonial-card .name {
+  font-weight: 700;
+  color: var(--finlete-ink);
+}
+
+.testimonial-card .bi-quote {
+  color: var(--finlete-green);
+  font-size: 1.75rem;
+}
+
+/* Press logos strip */
+.press-strip {
+  background: #fff;
+  border-top: 1px solid #eceef1;
+  border-bottom: 1px solid #eceef1;
+  padding: 2.25rem 0;
+}
+
+.press-strip img {
+  max-height: 36px;
+  width: auto;
+  opacity: 0.75;
+  filter: grayscale(100%);
+  transition: opacity 0.15s ease, filter 0.15s ease;
+}
+
+.press-strip img:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+.press-strip .press-label {
+  color: var(--finlete-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Accordion (FAQs) brand tint */
+.accordion-button:not(.collapsed) {
+  background-color: var(--finlete-green-soft);
+  color: var(--finlete-ink);
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  border-color: var(--finlete-green);
+  box-shadow: 0 0 0 0.18rem rgba(50, 205, 50, 0.2);
+}
+
+.accordion-item {
+  border-color: #eceef1;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--finlete-ink);
+  color: #c8c8c8;
+  padding: 4rem 0 1.5rem;
+}
+
+.site-footer h6 {
+  color: #fff;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.site-footer a {
+  color: #c8c8c8;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--finlete-green);
+}
+
+.site-footer .footer-brand img {
+  height: 36px;
+  margin-bottom: 1.25rem;
+}
+
+.site-footer .social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  margin-right: 0.5rem;
+  transition: background 0.15s ease;
+}
+
+.site-footer .social-icons a:hover {
+  background: var(--finlete-green);
+  color: #fff;
+}
+
+.footer-legal {
+  font-size: 0.78rem;
+  color: #8c8c8c;
+  line-height: 1.55;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-legal a {
+  color: #c8c8c8;
+  text-decoration: underline;
+}
+
+.footer-copyright {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: #8c8c8c;
+  font-size: 0.85rem;
+}
+
+/* Audience / perk section on dark */
+.perk-item .bi {
+  font-size: 1.4rem;
+  color: var(--finlete-green);
+  margin-right: 0.75rem;
+}
+
+/* CTA banner */
+.cta-banner {
+  background: linear-gradient(120deg, #0a0a0a 0%, #1a1a1a 100%);
+  color: #fff;
+  border-radius: 20px;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-banner::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(50, 205, 50, 0.18) 0%, transparent 60%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Athlete profile hero */
+.profile-hero {
+  background: linear-gradient(120deg, #0a0a0a 0%, #1a1a1a 80%);
+  color: #fff;
+  padding: 4.5rem 0 4rem;
+}
+
+.profile-hero .profile-img {
+  aspect-ratio: 4 / 5;
+  background: #1f2937;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.profile-hero .profile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stat-tile {
+  background: #fff;
+  border: 1px solid #eceef1;
+  border-radius: 14px;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.stat-tile .stat-value {
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: var(--finlete-ink);
+}
+
+.stat-tile .stat-label {
+  color: var(--finlete-muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.3rem;
+}
+
+/* Simple page (terms, privacy, about) */
+.simple-page {
+  padding: 5rem 0;
+}
+
+.simple-page h1 {
+  margin-bottom: 2rem;
+}
+
+.simple-page p,
+.simple-page li {
+  color: #374151;
+  line-height: 1.7;
+}
+
+.simple-page h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+/* Sign-in form */
+.auth-card {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  background: #fff;
+  border: 1px solid #eceef1;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+}
+
+/* Utility */
+.rounded-xl { border-radius: 16px; }
+.rounded-2xl { border-radius: 20px; }
+
+@media (max-width: 576px) {
+  .hero { padding: 4rem 0 3rem; }
+  .section { padding: 3.5rem 0; }
+  .cta-banner { padding: 2rem 1.5rem; }
+}
