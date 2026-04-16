@@ -238,12 +238,29 @@ body {
    Homepage hero — LIGHT editorial layout (Figma 2026 design)
    ========================================================= */
 .hero-light {
-  background: #fff;
+  background:
+    linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
   color: var(--finlete-ink);
   padding: 3rem 0 2rem;
   position: relative;
   overflow: hidden;
 }
+
+.hero-light::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(12, 10, 9, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(12, 10, 9, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(ellipse at 30% 30%, black 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 30% 30%, black 0%, transparent 70%);
+}
+
+.hero-light > .container { position: relative; z-index: 1; }
 
 .hero-light .active-users-pill {
   display: inline-flex;
@@ -274,20 +291,21 @@ body {
 }
 
 .hero-light .active-users-pill .au-avatars .au-avatar {
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  border: 2px solid #fff;
+  border: 2.5px solid #fff;
   background: var(--finlete-bg-default);
-  margin-left: -10px;
+  margin-left: -12px;
   overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.6rem;
-  font-weight: 700;
-  color: var(--finlete-muted);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .hero-light .active-users-pill .au-avatars .au-avatar img {
@@ -295,7 +313,14 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  filter: grayscale(100%) brightness(1.15) contrast(1.05);
+  filter: grayscale(100%) brightness(1.2) contrast(1.1);
+}
+
+.hero-light .active-users-pill .au-avatars .au-avatar-count {
+  background: var(--finlete-ink);
+  color: #fff;
+  font-family: "Archivo", sans-serif;
+  letter-spacing: -0.02em;
 }
 
 .hero-light .active-users-pill .au-avatars .au-avatar:first-child {
@@ -325,6 +350,12 @@ body {
   margin-bottom: 2rem;
 }
 
+.hero-light .hero-structured {
+  border-left: 3px solid var(--finlete-green);
+  padding-left: 1rem;
+  margin-bottom: 1.75rem;
+}
+
 .hero-light .hero-subhead {
   font-weight: 800;
   color: var(--finlete-ink);
@@ -335,7 +366,11 @@ body {
 .hero-light .hero-subcopy {
   color: var(--finlete-muted);
   font-size: 0.95rem;
-  margin-bottom: 1.75rem;
+  margin: 0;
+}
+
+.hero-light .hero-sub {
+  max-width: 36rem;
 }
 
 .btn-dark-pill {
@@ -465,11 +500,12 @@ body {
   z-index: 4;
   width: 300px;
   max-width: 300px;
-  background: var(--finlete-ink);
+  background:
+    linear-gradient(165deg, var(--finlete-green-light) 0%, var(--finlete-green) 55%, var(--finlete-green-dark) 100%);
   color: #fff;
-  border-radius: 16px;
-  padding: 1.35rem 1.5rem 1.25rem 1.5rem;
-  box-shadow: var(--finlete-shadow-m), 0 20px 40px -10px rgba(0, 0, 0, 0.35);
+  border-radius: 20px;
+  padding: 1rem 1.35rem 1.25rem 1.35rem;
+  box-shadow: var(--finlete-shadow-m), 0 20px 40px -10px rgba(54, 169, 62, 0.35);
   transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
@@ -490,62 +526,68 @@ body {
 .hero-elite-card::before {
   content: "";
   position: absolute;
-  top: -1px;
-  right: -1px;
-  width: 38px;
-  height: 38px;
-  border-top-right-radius: 16px;
-  background: var(--finlete-green);
+  top: 0;
+  right: 0;
+  width: 42px;
+  height: 42px;
+  border-top-right-radius: 20px;
+  background: var(--finlete-ink);
   clip-path: polygon(100% 0, 0 0, 100% 100%);
+  z-index: 0;
 }
 
 .hero-elite-card .elite-label {
-  position: relative;
-  z-index: 1;
-  font-size: 0.7rem;
+  display: inline-block;
+  font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.14em;
-  color: rgba(255, 255, 255, 0.65);
-  margin-bottom: 0.65rem;
+  color: #fff;
+  background: var(--finlete-ink);
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
   text-transform: uppercase;
+  position: relative;
+  z-index: 1;
 }
 
-.hero-elite-card .elite-label.status-sold-out { color: #f87171; }
-.hero-elite-card .elite-label.status-new { color: var(--finlete-green-light); }
-.hero-elite-card .elite-label.status-top-seller { color: #fbbf24; }
-.hero-elite-card .elite-label.status-on-the-cusp { color: #60a5fa; }
-.hero-elite-card .elite-label.status-elite-athlete { color: var(--finlete-green-light); }
+.hero-elite-card .elite-label.status-sold-out { background: #991b1b; }
+.hero-elite-card .elite-label.status-new { background: var(--finlete-ink); }
+.hero-elite-card .elite-label.status-top-seller { background: var(--finlete-ink); }
+.hero-elite-card .elite-label.status-on-the-cusp { background: var(--finlete-ink); }
+.hero-elite-card .elite-label.status-elite-athlete { background: var(--finlete-ink); }
 
 .hero-elite-card .elite-name {
   font-family: "Archivo", sans-serif;
   font-weight: 800;
-  font-size: 1.85rem;
-  color: var(--finlete-green);
+  font-size: 1.95rem;
+  color: #fff;
   line-height: 0.98;
-  letter-spacing: -0.015em;
-  margin-bottom: 0.55rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
 }
 
 .hero-elite-card .elite-meta {
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.92);
   font-size: 0.82rem;
   margin-bottom: 1rem;
   letter-spacing: 0.01em;
+  font-weight: 500;
 }
 
 .hero-elite-card .elite-panel {
   background: #fff;
   color: var(--finlete-ink);
   border-radius: 10px;
-  padding: 0.7rem 0.85rem;
+  padding: 0.75rem 0.95rem;
   font-size: 0.82rem;
-  line-height: 1.4;
+  line-height: 1.45;
   font-weight: 500;
 }
 
 .hero-elite-card .elite-panel strong {
-  color: var(--finlete-green-dark);
-  font-weight: 700;
+  color: var(--finlete-ink);
+  font-weight: 800;
 }
 
 .hero-carousel-controls {
@@ -558,28 +600,39 @@ body {
 }
 
 .hero-carousel-controls button {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
   background: #fff;
-  border: 1px solid var(--finlete-border-soft);
+  border: 1.5px solid var(--finlete-border-default);
   color: var(--finlete-ink);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+  font-size: 1rem;
 }
 
 .hero-carousel-controls button:hover {
-  background: var(--finlete-bg-medium);
+  border-color: var(--finlete-ink);
   transform: translateY(-1px);
 }
 
 .hero-carousel-controls button.active {
-  background: var(--finlete-ink);
-  color: #fff;
+  background: #fff;
+  color: var(--finlete-ink);
   border-color: var(--finlete-ink);
+}
+
+.hero-carousel-controls button[aria-label="Previous athlete"] {
+  color: var(--finlete-border-default);
+  border-color: var(--finlete-border-soft);
+}
+
+.hero-carousel-controls button[aria-label="Previous athlete"]:hover {
+  color: var(--finlete-ink);
+  border-color: var(--finlete-border-default);
 }
 
 .hero-carousel-dots {

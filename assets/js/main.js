@@ -35,7 +35,7 @@
         photo: "assets/img/athletes/hero-stage-padilla.png",
         name: "Yairo<br />Padilla",
         meta: "St. Louis Cardinals · SS · Rookie",
-        status: "Elite Athlete",
+        status: "Elite Athleticism",
         statusKey: "elite-athlete",
         panel: "Has been compared to <strong>Elly De La Cruz</strong> and <strong>Fernando Tatis Jr.</strong>",
         chips: ["#16 Cardinals prospect", "24 SB in 38 G (2025)", ".396 OBP (2025)"]
