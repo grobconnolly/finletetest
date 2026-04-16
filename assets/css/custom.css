@@ -446,8 +446,8 @@ body {
 
 .hero-athlete-chips {
   position: absolute;
-  top: 18%;
-  right: -3rem;
+  top: 22%;
+  right: 0;
   z-index: 4;
   display: flex;
   flex-direction: column;
@@ -457,7 +457,7 @@ body {
 
 @media (max-width: 991px) {
   .hero-athlete-chips {
-    right: -0.5rem;
+    right: 0;
     align-items: flex-end;
   }
 }
@@ -494,12 +494,12 @@ body {
 
 .hero-elite-card {
   position: absolute;
-  right: -2rem;
-  bottom: 4%;
+  right: 0;
+  bottom: 6%;
   z-index: 4;
-  width: 58%;
-  min-width: 280px;
-  max-width: 340px;
+  width: 55%;
+  min-width: 260px;
+  max-width: 320px;
   background:
     linear-gradient(165deg, var(--finlete-green-light) 0%, var(--finlete-green) 55%, var(--finlete-green-dark) 100%);
   color: #fff;
@@ -512,9 +512,9 @@ body {
 
 @media (max-width: 991px) {
   .hero-elite-card {
-    right: -0.5rem;
-    width: 65%;
-    max-width: 300px;
+    right: 0;
+    width: 60%;
+    max-width: 280px;
   }
 }
 
