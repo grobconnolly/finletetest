@@ -294,7 +294,8 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(100%);
+  object-position: center top;
+  filter: grayscale(100%) brightness(1.15) contrast(1.05);
 }
 
 .hero-light .active-users-pill .au-avatars .au-avatar:first-child {
@@ -1195,6 +1196,290 @@ body {
     grid-template-columns: 1fr;
     padding: 2.25rem;
   }
+}
+
+/* Audience — For Sports Fans (wide card): equipment mini-scene */
+.feature-fans { position: relative; overflow: hidden; }
+
+.af-visual-fans {
+  min-height: 160px;
+  position: relative;
+  padding: 1rem 2rem;
+}
+
+.af-equipment {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.af-equipment .af-ball {
+  font-size: 3rem;
+  color: #fff;
+  background: var(--finlete-ink);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), inset 0 -4px 12px rgba(255,255,255,0.15);
+  position: relative;
+}
+
+.af-equipment .af-ball::before,
+.af-equipment .af-ball::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: #d92d20;
+  transform: rotate(45deg);
+}
+
+.af-equipment .af-ball::after {
+  transform: rotate(-45deg);
+}
+
+.af-equipment .af-bat {
+  width: 200px;
+  height: 14px;
+  background: linear-gradient(to right, #c08a4a 0%, #9c6b35 100%);
+  border-radius: 10px;
+  transform: rotate(-8deg);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.af-equipment .af-bat::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -4px;
+  bottom: -4px;
+  width: 30px;
+  background: #9c6b35;
+  border-radius: 10px;
+}
+
+.af-equipment .af-helmet {
+  font-size: 3.5rem;
+  color: var(--finlete-green-dark);
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.15));
+}
+
+/* Audience — For Investors: stock-list mockup */
+.af-visual-investors {
+  min-height: auto;
+  margin-top: 1.5rem;
+  display: block;
+  width: 100%;
+  padding: 0;
+  max-width: 100%;
+  overflow: visible;
+}
+
+.af-stock-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: #fff;
+  border: 1px solid var(--finlete-border-soft);
+  border-radius: 14px;
+  padding: 0.6rem 0.85rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.af-stock-row.af-stock-highlight {
+  background: var(--finlete-ink);
+  border-color: var(--finlete-ink);
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+}
+
+.af-stock-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--finlete-bg-medium);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: var(--finlete-ink);
+  flex-shrink: 0;
+  overflow: hidden;
+  font-size: 0.85rem;
+}
+
+.af-stock-icon-athlete {
+  padding: 0;
+}
+
+.af-stock-icon-athlete img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.af-stock-icon-btc {
+  background: #f7931a;
+  color: #fff;
+}
+
+.af-stock-info { flex: 1; min-width: 0; }
+
+.af-stock-ticker {
+  font-weight: 800;
+  font-size: 0.82rem;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.af-stock-name {
+  font-size: 0.7rem;
+  color: var(--finlete-muted);
+  margin-top: 0.1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.af-stock-highlight .af-stock-name { color: rgba(255, 255, 255, 0.6); }
+
+.af-stock-right { text-align: right; }
+
+.af-stock-price {
+  font-weight: 800;
+  color: var(--finlete-green-light);
+  font-size: 0.95rem;
+  font-family: "Archivo", sans-serif;
+  line-height: 1.1;
+}
+
+.af-stock-shares {
+  color: var(--finlete-green-light);
+  font-size: 0.72rem;
+  font-weight: 600;
+  margin-top: 0.1rem;
+}
+
+.af-trend {
+  width: 60px;
+  height: 20px;
+  fill: none;
+  stroke: var(--finlete-green);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Audience — For Collectors: fanned trading cards */
+.af-visual-collectors {
+  min-height: 180px;
+  position: relative;
+  margin-top: 1rem;
+}
+
+.af-card-fan {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.af-card {
+  position: absolute;
+  width: 100px;
+  height: 155px;
+  background: var(--finlete-ink);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+  border: 3px solid #fff;
+}
+
+.af-card img {
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.af-card .af-card-name {
+  background: var(--finlete-green);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-align: center;
+  padding: 0.35rem 0.25rem;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+.af-card-1 {
+  transform: rotate(-10deg) translateX(-70px) translateY(8px);
+  z-index: 1;
+}
+.af-card-2 {
+  transform: translateY(0);
+  z-index: 2;
+}
+.af-card-3 {
+  transform: rotate(10deg) translateX(70px) translateY(8px);
+  z-index: 1;
+}
+
+/* Audience — For Fantasy GMs: trophy + champion plaque */
+.af-visual-fantasy {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.af-trophy {
+  font-size: 4.5rem;
+  color: #8a8a8a;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+  background: linear-gradient(180deg, #d4d4d4 0%, #8a8a8a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.af-champion-plaque {
+  background: var(--finlete-ink);
+  color: var(--finlete-green-light);
+  font-family: "Archivo", sans-serif;
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+}
+
+.af-champion-sub {
+  color: var(--finlete-muted);
+  font-size: 0.78rem;
+  font-weight: 500;
 }
 
 /* Original metrics-card (kept for backwards compat, unused on homepage) */
