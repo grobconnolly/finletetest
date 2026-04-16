@@ -329,10 +329,10 @@ body {
 
 .hero-light h1 {
   font-family: "Archivo", sans-serif;
-  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+  font-size: clamp(1.8rem, 3.1vw, 2.55rem);
   font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -0.025em;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   color: var(--finlete-ink);
   margin-bottom: 1.25rem;
 }
