@@ -1,15 +1,24 @@
 import type { NextConfig } from "next";
 
 /**
- * Routing model:
- *   /                      → public/index.html        (Framer mirror, static)
- *   /about, /padilla, …    → public/<slug>/index.html (Framer mirrors)
- *   /legal/*               → public/legal/<slug>/index.html
- *   /v2, /test             → src/app/v2, src/app/test (real Next.js pages)
+ * Pixel-perfect static mirror of finlete.com.
  *
- * Because the mirror pages live at their exact URL paths inside `public/`,
- * Vercel and `next dev` both serve them without any rewrite rules. This is
- * the simplest working setup — no vercel.json rewrites needed either.
+ * Every page is a captured Framer HTML file at its exact URL path inside
+ * `public/`:
+ *   /                          → public/index.html
+ *   /about                     → public/about/index.html
+ *   /athletes                  → public/athletes/index.html
+ *   /avila, /escobar, /ornelas,
+ *   /padilla, /santos, /teodo  → public/<slug>/index.html
+ *   /athlete-landingpage-2026  → public/athlete-landingpage-2026/index.html
+ *   /legal/terms-of-service    → public/legal/terms-of-service/index.html
+ *   /legal/privacy-policy      → public/legal/privacy-policy/index.html
+ *
+ * Assets (images, fonts) are served from public/images/ and public/fonts/,
+ * referenced by absolute paths from inside each mirrored HTML file.
+ *
+ * `vercel.json` sets framework=nextjs so Vercel runs `next build` (rather
+ * than treating this as a static-HTML-only project).
  */
 const nextConfig: NextConfig = {};
 
