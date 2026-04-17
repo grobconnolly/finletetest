@@ -162,15 +162,15 @@ export function Hero() {
 
         {/* ==================== RIGHT COLUMN ==================== */}
         <div className="relative min-h-[520px] lg:min-h-[760px]">
-          {/* Athlete photo */}
-          <div className="absolute inset-0 lg:-right-10 overflow-hidden">
+          {/* Athlete photo — Yairo Padilla */}
+          <div className="absolute inset-0 overflow-hidden">
             <Image
-              src="/images/Fk2I9sJIBpiJ7KNjIWWb1nmEwM_w759.png"
+              src="/images/Ym6LypgeRMRKqdwoOMt1QLxYoo_w1200.png"
               alt="Yairo Padilla"
               fill
               sizes="(max-width: 1000px) 100vw, 58vw"
               priority
-              style={{ objectFit: "cover", objectPosition: "center bottom" }}
+              style={{ objectFit: "contain", objectPosition: "center bottom" }}
             />
           </div>
 
