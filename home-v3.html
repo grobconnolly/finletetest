@@ -20,27 +20,28 @@
 
 :root{
   --bg:#ffffff;
-  --fg:#0a0a0a;
-  --muted:#6b736d;
-  --line:#e4e8e4;
-  --accent:#32cd32;
-  --accent-ink:#1b7f1e;
-  --block-bg:#0a0a0a;
+  --fg:#16212c;
+  --muted:#66717c;
+  --line:#e2e7ec;
+  --accent:#44a647;
+  --accent-ink:#257a2a;
+  --block-bg:#1b2a39;
   --block-fg:#ffffff;
-  --block-muted:#9aa39c;
+  --block-muted:#9fb0c0;
+  --logo:#1b2a39;
   --display:"Archivo SE","Archivo",Arial,sans-serif;
   --body:"Inter Local","Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   color-scheme:light;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#0a0a0a;--fg:#f4f6f4;--muted:#9aa39c;--line:#232823;--accent:#32cd32;--accent-ink:#62e062;
-    --block-bg:#f4f6f4;--block-fg:#0a0a0a;--block-muted:#5f675f;color-scheme:dark;
+    --bg:#0f161d;--fg:#f2f5f7;--muted:#9aa8b5;--line:#243040;--accent:#44a647;--accent-ink:#7ad67e;
+    --block-bg:#f2f5f7;--block-fg:#16212c;--block-muted:#5b6977;--logo:#ffffff;color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#0a0a0a;--fg:#f4f6f4;--muted:#9aa39c;--line:#232823;--accent:#32cd32;--accent-ink:#62e062;
-  --block-bg:#f4f6f4;--block-fg:#0a0a0a;--block-muted:#5f675f;color-scheme:dark;
+  --bg:#0f161d;--fg:#f2f5f7;--muted:#9aa8b5;--line:#243040;--accent:#44a647;--accent-ink:#7ad67e;
+  --block-bg:#f2f5f7;--block-fg:#16212c;--block-muted:#5b6977;--logo:#ffffff;color-scheme:dark;
 }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -63,19 +64,23 @@ p{margin:0}
 .btn{display:inline-flex;align-items:center;gap:.6rem;font-weight:600;font-size:1rem;padding:1rem 1.5rem;border-radius:999px;text-decoration:none;line-height:1;border:1.5px solid var(--fg);background:var(--fg);color:var(--bg);transition:transform .15s ease}
 .btn:hover{transform:translateY(-1px)}
 .btn svg{width:18px;height:18px}
-.btn-accent{background:var(--accent);border-color:var(--accent);color:#0a0a0a}
+.btn-accent{background:var(--accent);border-color:var(--accent);color:#ffffff}
 .btn-outline{background:transparent;color:var(--fg)}
 .btn-sm{padding:.7rem 1.1rem;font-size:.9rem}
 
 /* Nav */
 .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:76px}
-.brand{display:flex;align-items:center;gap:.65rem;text-decoration:none;font-family:var(--display);font-weight:700;letter-spacing:.08em;font-size:1rem}
-.brand img{width:24px;height:auto}
+.brand{display:flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--logo)}
+.brand .mark{width:30px;height:30px;flex:none}
+.brand .wordmark{height:15px;width:auto}
+:root[data-theme="dark"] .brand .wordmark{filter:brightness(0) invert(1)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .brand .wordmark{filter:brightness(0) invert(1)}}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none;margin:0;padding:0}
 .nav-links a{text-decoration:none;font-weight:500;font-size:.95rem;color:var(--muted)}
 .nav-links a:hover{color:var(--fg)}
 @media (max-width:820px){.nav-links{display:none}}
+@media (max-width:400px){.brand .mark{width:26px;height:26px}.brand .wordmark{height:13px}.nav .btn-sm{padding:.6rem .9rem;font-size:.85rem}.wrap{padding-inline:20px}}
 
 /* Hero */
 .hero{padding-block:clamp(40px,7vw,96px) 0}
@@ -83,7 +88,7 @@ p{margin:0}
 .hero-photo{padding-bottom:clamp(24px,3vw,40px)}
 @media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
 .hero-copy{display:grid;gap:clamp(22px,3vw,36px);padding-bottom:clamp(40px,6vw,88px);min-width:0}
-.hero-copy h1 em{font-style:normal;color:var(--accent-ink)}
+.hero-copy h1 em{font-style:normal;color:var(--accent)}
 .lede{font-size:clamp(1.1rem,1.6vw,1.35rem);line-height:1.45;color:var(--muted);max-width:34ch}
 .lede strong{color:var(--fg);font-weight:600}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
@@ -146,7 +151,7 @@ p{margin:0}
 .row .faces{display:flex}
 .row .faces .ph{width:40px;height:40px;margin-left:-14px;border:2px solid var(--bg)}
 .row .faces .ph:first-child{margin-left:0}
-@media (max-width:820px){
+@media (max-width:960px){
   .row{grid-template-columns:52px minmax(0,1fr) 28px;grid-template-areas:"ph who arrow" "ph cells arrow";row-gap:12px}
   .row .ph{width:52px;height:52px;grid-area:ph;align-self:start}
   .row .who{grid-area:who}
@@ -154,7 +159,7 @@ p{margin:0}
   .row .arrow{grid-area:arrow;align-self:center}
   .row .faces .ph{width:34px;height:34px}
 }
-@media (min-width:821px){.row .cells{display:contents}}
+@media (min-width:961px){.row .cells{display:contents}}
 .list-note{margin-top:20px;font-size:.9rem;color:var(--muted);max-width:70ch;line-height:1.5}
 
 /* Plain terms */
@@ -183,7 +188,7 @@ footer{border-top:1px solid var(--line);padding-block:36px 44px;color:var(--mute
 
 <nav class="nav" aria-label="Main">
   <div class="wrap">
-    <a class="brand" href="index.html"><img src="assets/img/finlete-f.svg" alt="" />FINLETE</a>
+    <a class="brand" href="index.html"><svg class="mark" viewBox="4 4 45 45" aria-hidden="true"><path fill="currentColor" d="M17.187 15.481h24.571L47.9 4.843H11.044L4.9 15.48l6.144 10.64 6.143-10.64Z"/><path fill="#44A647" d="m44.773 20.801-6.143 10.64H26.345L20.24 42.016l-.038.065-3.033 5.253-6.144-10.638 3.035-5.255.037-.065L20.202 20.8h24.571Z"/></svg><img class="wordmark" src="assets/img/finlete-wordmark.png" alt="Finlete" width="1400" height="219" /></a>
     <ul class="nav-links">
       <li><a href="#live">Athletes</a></li>
       <li><a href="#how">How it works</a></li>
@@ -331,7 +336,7 @@ footer{border-top:1px solid var(--line);padding-block:36px 44px;color:var(--mute
 <footer>
   <div class="wrap">
     <div class="foot">
-      <a class="brand" href="index.html" style="color:var(--fg)"><img src="assets/img/finlete-f.svg" alt="" />FINLETE</a>
+      <a class="brand" href="index.html"><svg class="mark" viewBox="4 4 45 45" aria-hidden="true"><path fill="currentColor" d="M17.187 15.481h24.571L47.9 4.843H11.044L4.9 15.48l6.144 10.64 6.143-10.64Z"/><path fill="#44A647" d="m44.773 20.801-6.143 10.64H26.345L20.24 42.016l-.038.065-3.033 5.253-6.144-10.638 3.035-5.255.037-.065L20.202 20.8h24.571Z"/></svg><img class="wordmark" src="assets/img/finlete-wordmark.png" alt="Finlete" width="1400" height="219" /></a>
       <ul class="foot-links">
         <li><a href="#live">Athletes</a></li>
         <li><a href="#how">How it works</a></li>
