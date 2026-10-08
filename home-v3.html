@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Finlete — Own a share of a future MLB career</title>
+<meta name="description" content="Finlete signs top MLB prospects at fair valuations. Invest from $300 through an SEC-registered broker-dealer and get paid when they get paid." />
+<link rel="icon" href="assets/img/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112.5,500..700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+/* Layout: one 1200px column, hairline rules instead of cards, six short screens. Type does the work; one accent, used once per screen. */
+@font-face{font-family:"Archivo SE";src:url("assets/fonts/titles/Archivo_SemiExpanded-Medium.ttf") format("truetype");font-weight:500;font-display:swap}
+@font-face{font-family:"Archivo SE";src:url("assets/fonts/titles/Archivo_SemiExpanded-SemiBold.ttf") format("truetype");font-weight:600;font-display:swap}
+@font-face{font-family:"Archivo SE";src:url("assets/fonts/titles/Archivo_SemiExpanded-Bold.ttf") format("truetype");font-weight:700;font-display:swap}
+@font-face{font-family:"Inter Local";src:url("assets/fonts/body/Inter-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Inter Local";src:url("assets/fonts/body/Inter-Medium.ttf") format("truetype");font-weight:500;font-display:swap}
+@font-face{font-family:"Inter Local";src:url("assets/fonts/body/Inter-SemiBold.ttf") format("truetype");font-weight:600;font-display:swap}
+
+:root{
+  --bg:#ffffff;
+  --fg:#0a0a0a;
+  --muted:#6b736d;
+  --line:#e4e8e4;
+  --accent:#32cd32;
+  --accent-ink:#1b7f1e;
+  --block-bg:#0a0a0a;
+  --block-fg:#ffffff;
+  --block-muted:#9aa39c;
+  --display:"Archivo SE","Archivo",Arial,sans-serif;
+  --body:"Inter Local","Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0a0a0a;--fg:#f4f6f4;--muted:#9aa39c;--line:#232823;--accent:#32cd32;--accent-ink:#62e062;
+    --block-bg:#f4f6f4;--block-fg:#0a0a0a;--block-muted:#5f675f;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0a0a0a;--fg:#f4f6f4;--muted:#9aa39c;--line:#232823;--accent:#32cd32;--accent-ink:#62e062;
+  --block-bg:#f4f6f4;--block-fg:#0a0a0a;--block-muted:#5f675f;color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.5;font-feature-settings:"ss01","cv11"}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);margin:0;font-weight:600;letter-spacing:-.025em;text-wrap:balance}
+h1{font-size:clamp(2.75rem,7vw,6rem);line-height:.96}
+h2{font-size:clamp(1.9rem,3.8vw,3rem);line-height:1.02}
+h3{font-size:1.25rem;letter-spacing:-.01em;line-height:1.2}
+p{margin:0}
+.wrap{width:min(1200px,100%);margin-inline:auto;padding-inline:24px}
+.num{font-variant-numeric:tabular-nums}
+.label{font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.muted{color:var(--muted)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-weight:600;font-size:1rem;padding:1rem 1.5rem;border-radius:999px;text-decoration:none;line-height:1;border:1.5px solid var(--fg);background:var(--fg);color:var(--bg);transition:transform .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn svg{width:18px;height:18px}
+.btn-accent{background:var(--accent);border-color:var(--accent);color:#0a0a0a}
+.btn-outline{background:transparent;color:var(--fg)}
+.btn-sm{padding:.7rem 1.1rem;font-size:.9rem}
+
+/* Nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:76px}
+.brand{display:flex;align-items:center;gap:.65rem;text-decoration:none;font-family:var(--display);font-weight:700;letter-spacing:.08em;font-size:1rem}
+.brand img{width:24px;height:auto}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none;margin:0;padding:0}
+.nav-links a{text-decoration:none;font-weight:500;font-size:.95rem;color:var(--muted)}
+.nav-links a:hover{color:var(--fg)}
+@media (max-width:820px){.nav-links{display:none}}
+
+/* Hero */
+.hero{padding-block:clamp(40px,7vw,96px) 0}
+.hero-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,5vw,72px);align-items:end}
+.hero-photo{padding-bottom:clamp(24px,3vw,40px)}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.hero-copy{display:grid;gap:clamp(22px,3vw,36px);padding-bottom:clamp(40px,6vw,88px);min-width:0}
+.hero-copy h1 em{font-style:normal;color:var(--accent-ink)}
+.lede{font-size:clamp(1.1rem,1.6vw,1.35rem);line-height:1.45;color:var(--muted);max-width:34ch}
+.lede strong{color:var(--fg);font-weight:600}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.cta-row .alt{font-weight:500;color:var(--muted);text-decoration:none;padding:.5rem .25rem;border-bottom:1px solid var(--line)}
+.cta-row .alt:hover{color:var(--fg);border-color:var(--fg)}
+.hero-photo{position:relative;min-width:0;align-self:end}
+.hero-photo img{width:100%;height:auto;max-height:640px;object-fit:contain;object-position:bottom center;margin-inline:auto}
+.hero-photo figcaption{display:grid;gap:2px;padding:12px 0 0;font-size:.8rem;color:var(--muted)}
+.hero-photo figcaption strong{color:var(--fg);font-weight:600}
+@media (max-width:900px){.hero-photo img{max-height:360px;margin-inline:0}.hero-copy{padding-bottom:0}}
+
+/* Facts row */
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media (max-width:820px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fact{padding:28px 24px 28px 0;display:grid;gap:8px;border-left:1px solid var(--line);padding-left:24px}
+.fact:first-child{border-left:0;padding-left:0}
+@media (max-width:820px){.fact:nth-child(3){border-left:0;padding-left:0}.fact:nth-child(n+3){border-top:1px solid var(--line)}}
+.fact .v{font-family:var(--display);font-weight:600;font-size:clamp(1.7rem,3vw,2.4rem);line-height:1;letter-spacing:-.02em}
+.fact .l{font-size:.9rem;color:var(--muted)}
+
+/* Statement block */
+.statement{background:var(--block-bg);color:var(--block-fg);padding-block:clamp(72px,10vw,140px)}
+.statement .wrap{display:grid;gap:clamp(28px,4vw,48px)}
+.statement .label{color:var(--block-muted)}
+.statement h2{font-size:clamp(2.2rem,5.6vw,4.6rem);max-width:18ch;letter-spacing:-.03em}
+.statement h2 em{font-style:normal;color:var(--accent)}
+.statement-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;border-top:1px solid color-mix(in srgb,var(--block-fg) 18%,transparent);padding-top:32px}
+@media (max-width:820px){.statement-grid{grid-template-columns:1fr;gap:24px}}
+.sg .v{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1;letter-spacing:-.02em}
+.sg .l{margin-top:10px;color:var(--block-muted);font-size:.95rem;max-width:28ch}
+.statement .fine{color:var(--block-muted);font-size:.85rem;max-width:70ch;line-height:1.5}
+.statement .fine a{color:var(--block-fg);font-weight:500}
+
+/* How it works */
+.section{padding-block:clamp(72px,9vw,120px)}
+.section-head{display:grid;gap:14px;max-width:36ch;margin-bottom:clamp(32px,5vw,56px)}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
+@media (max-width:820px){.steps{grid-template-columns:1fr}}
+.step{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;padding:32px 32px 32px 0;border-left:1px solid var(--line);padding-left:32px;align-content:start}
+.step:first-child{border-left:0;padding-left:0}
+@media (max-width:820px){.step{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-block:24px}.step:first-child{border-top:0}}
+.step .n{font-family:var(--display);font-weight:600;font-size:.9rem;color:var(--accent-ink);padding-top:.35rem;letter-spacing:.04em}
+.step h3{margin-bottom:8px}
+.step p{color:var(--muted);font-size:1rem;max-width:30ch}
+
+/* Offerings list */
+.list{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:64px minmax(0,2fr) minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr) 40px;gap:20px;align-items:center;padding:20px 0;border-bottom:1px solid var(--line);text-decoration:none;color:inherit}
+.row:hover .name{text-decoration:underline;text-underline-offset:4px}
+.row .ph{width:64px;height:64px;border-radius:50%;overflow:hidden;background:var(--line)}
+.row .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.row .name{font-family:var(--display);font-weight:600;font-size:1.15rem;letter-spacing:-.01em;line-height:1.15}
+.row .meta{font-size:.9rem;color:var(--muted);margin-top:3px}
+.row .cell{display:grid;gap:3px}
+.row .cell .l{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.row .cell .v{font-family:var(--display);font-weight:600;font-size:1.25rem;letter-spacing:-.02em;line-height:1}
+.row .cell.hl .v{color:var(--accent-ink)}
+.row .arrow{justify-self:end;color:var(--muted)}
+.row .arrow svg{width:22px;height:22px}
+.row .faces{display:flex}
+.row .faces .ph{width:40px;height:40px;margin-left:-14px;border:2px solid var(--bg)}
+.row .faces .ph:first-child{margin-left:0}
+@media (max-width:820px){
+  .row{grid-template-columns:52px minmax(0,1fr) 28px;grid-template-areas:"ph who arrow" "ph cells arrow";row-gap:12px}
+  .row .ph{width:52px;height:52px;grid-area:ph;align-self:start}
+  .row .who{grid-area:who}
+  .row .cells{grid-area:cells;display:flex;flex-wrap:wrap;gap:16px 28px}
+  .row .arrow{grid-area:arrow;align-self:center}
+  .row .faces .ph{width:34px;height:34px}
+}
+@media (min-width:821px){.row .cells{display:contents}}
+.list-note{margin-top:20px;font-size:.9rem;color:var(--muted);max-width:70ch;line-height:1.5}
+
+/* Plain terms */
+.terms{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,72px);align-items:start}
+@media (max-width:900px){.terms{grid-template-columns:1fr}}
+.terms ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.terms li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line);font-size:1rem}
+@media (max-width:600px){.terms li{grid-template-columns:1fr;gap:4px}}
+.terms li strong{font-weight:600}
+.terms li span{color:var(--muted)}
+
+/* Closing */
+.closing{padding-block:clamp(64px,9vw,120px);border-top:1px solid var(--line)}
+.closing .wrap{display:grid;gap:28px;justify-items:start}
+.closing h2{max-width:22ch}
+
+footer{border-top:1px solid var(--line);padding-block:36px 44px;color:var(--muted);font-size:.85rem}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 32px;align-items:center}
+.foot-links{display:flex;flex-wrap:wrap;gap:20px;list-style:none;margin:0;padding:0}
+.foot-links a{text-decoration:none;color:var(--muted)}
+.foot-links a:hover{color:var(--fg)}
+.disc{margin-top:24px;max-width:92ch;line-height:1.55}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/img/finlete-f.svg" alt="" />FINLETE</a>
+    <ul class="nav-links">
+      <li><a href="#live">Athletes</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="sign-in.html">Sign in</a></li>
+    </ul>
+    <a class="btn btn-sm" href="#live">See live offerings</a>
+  </div>
+</nav>
+
+<!-- 1. What we are -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1>Own a share of a <em>future MLB career.</em></h1>
+        <p class="lede">We sign top prospects at fair valuations. You invest from <strong>$300</strong> and get paid when they get paid.</p>
+        <div class="cta-row">
+          <a class="btn" href="#live">See live offerings <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="alt" href="#how">How it works</a>
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <img src="assets/img/athletes/hero-stage-avila.png" alt="Luinder Avila pitching" width="620" height="1290" />
+        <figcaption><strong>Luinder Avila</strong><span>RHP · Kansas City Royals · Triple-A · Live offering</span></figcaption>
+      </figure>
+    </div>
+    <div class="facts" aria-label="Finlete by the numbers">
+      <div class="fact"><div class="v num">13</div><div class="l">Prospects signed</div></div>
+      <div class="fact"><div class="v num">$815K</div><div class="l">Invested by fans</div></div>
+      <div class="fact"><div class="v num">23%</div><div class="l">Repeat investors</div></div>
+      <div class="fact"><div class="v num">$0</div><div class="l">Checkout fees</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- 2. The fact that proves the pricing -->
+<section class="statement" aria-labelledby="st-title">
+  <div class="wrap">
+    <p class="label">Proof of fair pricing</p>
+    <h2 id="st-title">We signed Christian Zazueta at a <em>$6.8M</em> valuation. Today he's a top-30 prospect in all of baseball.</h2>
+    <div class="statement-grid">
+      <div class="sg"><div class="v num">$6.8M</div><div class="l">Career MLB earnings at which his investors break even</div></div>
+      <div class="sg"><div class="v num">7.4x</div><div class="l">Their multiple if his career earns $50M</div></div>
+      <div class="sg"><div class="v num">14.7x</div><div class="l">Their multiple if his career earns $100M</div></div>
+    </div>
+    <p class="fine">His offering is sold out. He is still one of six arms in <a href="#live">Pitching Bundle 1</a>. Multiples are what the valuation implies at each outcome, not results. Zazueta is in the minors and no dividends have been paid.</p>
+  </div>
+</section>
+
+<!-- 3. How it works -->
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="label">How it works</p>
+      <h2>Three steps. No loans, no team equity, no collectibles.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><div><h3>Pick a prospect</h3><p>Every athlete is in affiliated minor-league baseball and ranked among his organization's top prospects.</p></div></div>
+      <div class="step"><div class="n">02</div><div><h3>Buy at his valuation</h3><p>Your investment buys a proportional slice of his future MLB earnings, through an SEC-registered broker-dealer.</p></div></div>
+      <div class="step"><div class="n">03</div><div><h3>Get paid when he does</h3><p>Dividends twice a season once he earns MLB income, for a 25-year term.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Live now -->
+<section class="section" id="live" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="label">Live now</p>
+      <h2>Four ways in.</h2>
+    </div>
+    <div class="list">
+      <a class="row" href="athletes/avila.html">
+        <div class="ph"><img src="assets/img/athletes/hero-stage-avila.png" alt="" /></div>
+        <div class="who"><div class="name">Luinder Avila</div><div class="meta">RHP · Kansas City Royals · Triple-A · Org #4</div></div>
+        <div class="cells">
+          <div class="cell"><span class="l">Valuation</span><span class="v num">$14.6M</span></div>
+          <div class="cell hl"><span class="l">At $100M career</span><span class="v num">6.8x</span></div>
+          <div class="cell"><span class="l">From</span><span class="v num">$300</span></div>
+        </div>
+        <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </a>
+      <a class="row" href="athletes/padilla.html">
+        <div class="ph"><img src="assets/img/athletes/hero-stage-padilla.png" alt="" /></div>
+        <div class="who"><div class="name">Yairo Padilla</div><div class="meta">SS · St. Louis Cardinals · Org #16</div></div>
+        <div class="cells">
+          <div class="cell"><span class="l">Valuation</span><span class="v num">$10.8M</span></div>
+          <div class="cell hl"><span class="l">At $100M career</span><span class="v num">9.3x</span></div>
+          <div class="cell"><span class="l">From</span><span class="v num">$300</span></div>
+        </div>
+        <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </a>
+      <a class="row" href="athletes.html">
+        <div class="ph"><img src="assets/img/athletes/hero-stage-mejia.png" alt="" /></div>
+        <div class="who"><div class="name">Mejia</div><div class="meta">RHP</div></div>
+        <div class="cells">
+          <div class="cell"><span class="l">Valuation</span><span class="v num">$7.6M</span></div>
+          <div class="cell hl"><span class="l">At $100M career</span><span class="v num">13.2x</span></div>
+          <div class="cell"><span class="l">From</span><span class="v num">$300</span></div>
+        </div>
+        <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </a>
+      <a class="row" href="athletes.html">
+        <div class="faces" aria-hidden="true"><div class="ph"><img src="assets/img/athletes/hero-stage-mejia.png" alt="" /></div><div class="ph"><img src="assets/img/athletes/hero-stage-avila.png" alt="" /></div><div class="ph"><img src="assets/img/athletes/hero-stage-lagrange.png" alt="" /></div><div class="ph"><img src="assets/img/athletes/hero-stage-santos.png" alt="" /></div></div>
+        <div class="who"><div class="name">Pitching Bundle 1</div><div class="meta">Six arms, one stake · Mejia, Avila, Lagrange, Santos, Teodo, Zazueta</div></div>
+        <div class="cells">
+          <div class="cell"><span class="l">Valuation</span><span class="v num">$86M</span></div>
+          <div class="cell hl"><span class="l">One $100M arm</span><span class="v num">1.2x</span></div>
+          <div class="cell"><span class="l">From</span><span class="v num">$300</span></div>
+        </div>
+        <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </a>
+    </div>
+    <p class="list-note">A valuation is the price of 100% of a player's future MLB earnings. Investors break even when he earns it, and receive nothing if he never reaches the majors. The bundle breaks even when its six pitchers earn $86M combined.</p>
+  </div>
+</section>
+
+<!-- 5. Plain terms -->
+<section class="section" style="padding-top:0">
+  <div class="wrap terms">
+    <div class="section-head" style="margin-bottom:0">
+      <p class="label">Plain terms</p>
+      <h2>Everything else you should know fits on one screen.</h2>
+    </div>
+    <ul>
+      <li><strong>Regulated</strong><span>Regulation Crowdfunding offerings, intermediated by DealMaker Securities, LLC, a FINRA/SIPC broker-dealer. Form C filed with the SEC.</span></li>
+      <li><strong>No checkout fees</strong><span>Every dollar you invest buys shares.</span></li>
+      <li><strong>Paid twice a season</strong><span>Within 30 days after the All-Star Game and after the World Series, once the athlete earns MLB income. 25-year term.</span></li>
+      <li><strong>Illiquid</strong><span>One-year lockup and no public market. Plan to hold for the full term.</span></li>
+      <li><strong>Risky</strong><span>Most minor leaguers never earn an MLB paycheck. You can lose your entire investment. Read the offering documents.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 6. Closing -->
+<section class="closing">
+  <div class="wrap">
+    <p class="label">Open now</p>
+    <h2>Back the next Zazueta before his offering closes.</h2>
+    <a class="btn btn-accent" href="#live">See live offerings <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a class="brand" href="index.html" style="color:var(--fg)"><img src="assets/img/finlete-f.svg" alt="" />FINLETE</a>
+      <ul class="foot-links">
+        <li><a href="#live">Athletes</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="privacy-policy.html">Privacy</a></li>
+      </ul>
+    </div>
+    <p class="disc">Offerings are made under Regulation Crowdfunding and intermediated by DealMaker Securities, LLC, a registered broker-dealer and member of FINRA/SIPC. Investments are speculative, illiquid and involve a high degree of risk, including loss of your entire investment. Nothing on this page is investment advice or a forecast of any athlete's earnings. &copy; 2026 Finlete.</p>
+  </div>
+</footer>
+
+</body>
+</html>
