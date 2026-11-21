@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "targets": {
+    "/redesign": {
+      "targetKind": "existing-ui",
+      "projectId": "538dbd1f-dcf8-4c8e-b168-164609605fa1",
+      "baselineDraftId": "11ff05d8-67b9-4e27-bf4e-dac88e51f375",
+      "activeDraftId": "85ae246e-6433-468c-b18e-1a7dd5e7ed5d",
+      "designSystemPath": ".superdesign/design-system.md",
+      "referenceIds": [
+        "redesign-finlete-logo.svg",
+        "redesign-finlete-logo-on-dark.svg"
+      ],
+      "brandAssets": {
+        "logo": {
+          "assetKey": "redesign-finlete-logo.svg",
+          "url": "https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/projects/538dbd1f-dcf8-4c8e-b168-164609605fa1/brand-assets/redesign-finlete-logo.svg/finlete-logo.svg",
+          "sourcePath": "redesign/index.html"
+        },
+        "logoOnDark": {
+          "assetKey": "redesign-finlete-logo-on-dark.svg",
+          "url": "https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/projects/538dbd1f-dcf8-4c8e-b168-164609605fa1/brand-assets/redesign-finlete-logo-on-dark.svg/finlete-logo-on-dark.svg",
+          "sourcePath": "redesign/index.html"
+        }
+      },
+      "contextFiles": [
+        ".superdesign/design-system.md",
+        ".superdesign/asset-urls.md",
+        "redesign/index.html",
+        "redesign/styles.css"
+      ],
+      "fingerprints": {
+        ".superdesign/design-system.md": "b71139c4f86e0b6b9c27b9949627c5ac88ec9b16223af347a982656e7b6e70d3",
+        ".superdesign/asset-urls.md": "14bdcf60a71dcdf46d3a8c429ca86d21b83dcb77068a0ada4571a265a0accaae",
+        "redesign/index.html": "63acb96b7f9c36407a3762fb4418262fb995f2c7984a90ea56b93d7e21f352ce",
+        "redesign/styles.css": "7b415abaabc8779469fe5cbf6d2accef40268f34a39b066a33d3a52e340ee0aa"
+      },
+      "components": [],
+      "drafts": {
+        "11ff05d8-67b9-4e27-bf4e-dac88e51f375": {
+          "title": "Current homepage (baseline)",
+          "visualDirection": "faithful reproduction of redesign/index.html as of commit da7fbcf; no design changes",
+          "currentVersion": 1
+        },
+        "836839e3-7108-4112-8480-b4db8325f82f": {
+          "title": "Finlete homepage (founder-approved order)",
+          "visualDirection": "Board B: Zazueta proof hero with open-now chips, one proof band, four offering cards, money-flow diagram, 2008 investment simulator (pending legal sign-off), for-players band, text sign-up and app buttons, FAQ, footer. Same brand system as the baseline.",
+          "parentDraftId": "11ff05d8-67b9-4e27-bf4e-dac88e51f375",
+          "currentVersion": 3
+        },
+        "8be323ae-dcb0-4617-bc86-c36d21c83a3a": {
+          "title": "Finlete homepage \u2014 Night game",
+          "visualDirection": "Same structure and copy as the approved Board B draft, bolder look: ink-led page, giant green 'No. 24' numeral, Zazueta photo on a diagonal cut, baseball-card athlete cards, scoreboard numbers and simulator, money flow drawn as two straight lines one above the other (the founder's own layout: today's investment, then the MLB pay split 99% / 1%), plus a third row for never reaching MLB. Awaiting the founder's choice between this and the plainer draft.",
+          "parentDraftId": "836839e3-7108-4112-8480-b4db8325f82f",
+          "currentVersion": 9
+        },
+        "85ae246e-6433-468c-b18e-1a7dd5e7ed5d": {
+          "title": "Finlete homepage \u2014 Night game, refined",
+          "visualDirection": "The design model's own 'best version' pass on the night-game draft: near-identical composition with micro-adjustments. Selected by the founder in Superdesign as the draft to continue. v2 removes the phone mockup from the text-alert panel.",
+          "parentDraftId": "8be323ae-dcb0-4617-bc86-c36d21c83a3a",
+          "currentVersion": 2
+        }
+      },
+      "updatedAt": "2026-11-19T17:22:40Z"
+    }
+  }
+}

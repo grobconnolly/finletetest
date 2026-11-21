@@ -1,0 +1,42 @@
+/* Motion layer. Every effect here is added by JavaScript after load, so
+   without JS (or with reduced motion) the page is simply static. */
+
+/* Scroll reveal: elements get .rv once JS runs, .in when they enter view. */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .55s cubic-bezier(.2,.7,.2,1),transform .55s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--rv-i,0) * 60ms);will-change:opacity,transform}
+.rv.in{opacity:1;transform:none;will-change:auto}
+
+/* Nav: lifts on scroll, tucks away while reading down, returns on scroll up. */
+.nav{transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease,background-color .28s ease}
+.nav.is-scrolled{box-shadow:0 1px 0 rgba(255,255,255,.05),0 12px 32px rgba(0,0,0,.35)}
+.nav.is-hidden{transform:translateY(-100%)}
+.nav:focus-within{transform:none}
+
+/* Range inputs: a filled track that follows the thumb. --pct is set by JS. */
+.sim-range{-webkit-appearance:none;appearance:none;width:100%;min-height:44px;margin:0;background:linear-gradient(90deg,var(--green-500) 0 var(--pct,0%),var(--range-track,rgba(255,255,255,.18)) var(--pct,0%) 100%) center / 100% 6px no-repeat;border-radius:3px;cursor:pointer;outline-offset:6px}
+.sim-range:focus-visible{outline:2px solid var(--green-500)}
+.sim-range::-webkit-slider-runnable-track{height:6px;background:transparent}
+.sim-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:24px;height:24px;margin-top:-9px;border-radius:50%;background:var(--green-500);border:3px solid var(--ink);box-shadow:0 0 0 1px var(--green-500),0 4px 12px rgba(0,0,0,.35);transition:transform .15s ease}
+.sim-range::-moz-range-track{height:6px;background:transparent}
+.sim-range::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--green-500);border:3px solid var(--ink);box-shadow:0 0 0 1px var(--green-500),0 4px 12px rgba(0,0,0,.35)}
+.sim-range:active::-webkit-slider-thumb,.sim-range:focus-visible::-webkit-slider-thumb{transform:scale(1.12)}
+.pi .sim-range,.light .sim-range{--range-track:var(--rule-strong)}
+
+/* Numbers that count up: keep width stable while the digits roll. */
+.count{font-variant-numeric:tabular-nums}
+
+/* FAQ: the answer slides open instead of popping. */
+.faq details{overflow:hidden}
+.faq details.animating summary{pointer-events:none}
+
+/* Share button and its "copied" note. */
+.share-wrap{display:inline-flex;align-items:center;gap:var(--s-3);flex-wrap:wrap}
+.share-note{font-size:var(--fs-small);font-weight:600;color:var(--green-700);opacity:0;transform:translateY(4px);transition:opacity .2s ease,transform .2s ease}
+.share-note.show{opacity:1;transform:none}
+.on-dark .share-note,.cta .share-note{color:inherit}
+
+@media(prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  .nav{transition:none}
+  .sim-range::-webkit-slider-thumb{transition:none}
+  .share-note{transition:none}
+}
